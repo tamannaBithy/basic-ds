@@ -11,6 +11,8 @@ int main()
     {
         cin >> a[i];
     }
+
+    /// muloto ai part tukukei prefix sum bole, aivabe without loop puro arraytar summation ber kore neya jay
     pre[1] = a[1];
     for (int i = 2; i <= n; i++)
     {
