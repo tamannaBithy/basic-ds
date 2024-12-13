@@ -114,36 +114,36 @@ using namespace std;
 //     }
 // }
 
-int main()
-{
-    int n;
-    cin >> n;
-    int mid = n / 2;
+// int main()
+// {
+//     int n;
+//     cin >> n;
+//     int mid = n / 2;
 
-    for (int i = 0; i < n; i++)
-    {
-        string line(n, ' ');
+//     for (int i = 0; i < n; i++)
+//     {
+//         string line(n, ' ');
 
-        if (i < mid)
-        {
+//         if (i < mid)
+//         {
 
-            line[i] = '\\';
-            line[n - i - 1] = '/';
-        }
-        else if (i == mid)
-        {
+//             line[i] = '\\';
+//             line[n - i - 1] = '/';
+//         }
+//         else if (i == mid)
+//         {
 
-            line[mid] = 'X';
-        }
-        else
-        {
+//             line[mid] = 'X';
+//         }
+//         else
+//         {
 
-            line[n - i - 1] = '/';
-            line[i] = '\\';
-        }
+//             line[n - i - 1] = '/';
+//             line[i] = '\\';
+//         }
 
-        cout << line << endl;
-    }
+//         cout << line << endl;
+//     }
 
-    return 0;
-}
+//     return 0;
+// }
