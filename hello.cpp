@@ -147,3 +147,40 @@ using namespace std;
 
 //     return 0;
 // }
+
+// Description: Given an array of integers, find the equilibrium index. An equilibrium index is an index such that the sum of elements at lower indexes is equal to the sum of elements at higher indexes.
+
+int main()
+{
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    vector<int> pre(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+    }
+
+    pre[0] = a[0];
+    for (int i = 1; i < n; i++)
+    {
+        pre[i] = pre[i - 1] + a[i];
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+
+        int left_sum = (i == 0) ? 0 : pre[i - 1];
+        int right_sum = pre[n - 1] - pre[i];
+
+        if (left_sum == right_sum)
+        {
+            cout << i << " ";
+        }
+    }
+    cout << endl;
+    for (int i = 0; i < n; i++)
+    {
+        cout << pre[i] << " ";
+    }
+}
