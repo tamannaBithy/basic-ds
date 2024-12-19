@@ -41,6 +41,7 @@ void print_linked_list(Node *head)
         cout << tmp->val << " ";
         tmp = tmp->next;
     }
+    cout << endl;
 }
 
 void insert_position(Node *head, int pos, int v)
@@ -75,6 +76,13 @@ void delete_from_position(Node *head, int pos)
     delete deleteNode;
 }
 
+void delete_head(Node *&head)
+{
+    Node *deleteNode = head;
+    head = head->next;
+    delete deleteNode;
+}
+
 int main()
 {
     Node *head = NULL;
@@ -84,8 +92,10 @@ int main()
         // cout << "op 1: insert at tail" << endl;
         // cout << "op 2: print linked list" << endl;
         // cout << "op 3: insert at any position" << endl;
-        // cout << "op 5: delete at position" << endl;
-        // cout << "op 6: terminate" << endl;
+        // cout << "op 4: insert at head" << endl;
+        // cout << "op 5: delete at any position without head" << endl;
+        // cout << "op 6: delete from head" << endl;
+        // cout << "op 7: terminate" << endl;
         int op;
         cin >> op;
 
@@ -122,9 +132,20 @@ int main()
         {
             int pos;
             cin >> pos;
-            delete_from_position(head, pos);
+            if (pos == 0)
+            {
+                delete_head(head);
+            }
+            else
+            {
+                delete_from_position(head, pos);
+            }
         }
         else if (op == 6)
+        {
+            delete_head(head);
+        }
+        else if (op == 7)
         {
             break;
         }
@@ -145,4 +166,7 @@ int main()
 // 4  --- option 4
 // 50 --- value
 // 2 --- for printing the list
-// 6 ---- terminate
+// 5 --- option 5
+// 1 --- pos
+// 2 --- for printing the list again
+// 7 ---- terminate
