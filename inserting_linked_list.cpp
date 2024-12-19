@@ -51,6 +51,13 @@ void insert_position(Node *head, int pos, int v)
     for (int i = 1; i <= pos - 1; i++)
     {
         tmp = tmp->next;
+        /// ache 3 ta position kintu ami insert korte chacchi 100 number positione se khetre
+        if (tmp == NULL)
+        {
+            cout << endl
+                 << "invalid position" << endl;
+            return;
+        }
     }
     newnode->next = tmp->next;
     tmp->next = newnode;
@@ -69,6 +76,19 @@ void delete_from_position(Node *head, int pos)
     for (int i = 1; i < pos - 1; i++)
     {
         tmp = tmp->next;
+        if (tmp == NULL)
+        {
+            cout << endl
+                 << "invalid position" << endl;
+            return;
+        }
+    }
+
+    if (tmp->next == NULL)
+    {
+        cout << endl
+             << "invalid position" << endl;
+        return;
     }
 
     Node *deleteNode = tmp->next;
@@ -78,6 +98,12 @@ void delete_from_position(Node *head, int pos)
 
 void delete_head(Node *&head)
 {
+    if (head == NULL)
+    {
+        cout << endl
+             << "head is not available" << endl;
+        return;
+    }
     Node *deleteNode = head;
     head = head->next;
     delete deleteNode;
