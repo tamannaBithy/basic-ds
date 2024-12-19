@@ -62,6 +62,19 @@ void insert_at_head(Node *&head, int v)
     head = newnode;
 }
 
+void delete_from_position(Node *head, int pos)
+{
+    Node *tmp = head;
+    for (int i = 1; i < pos - 1; i++)
+    {
+        tmp = tmp->next;
+    }
+
+    Node *deleteNode = tmp->next;
+    tmp->next = tmp->next->next;
+    delete deleteNode;
+}
+
 int main()
 {
     Node *head = NULL;
@@ -71,8 +84,8 @@ int main()
         // cout << "op 1: insert at tail" << endl;
         // cout << "op 2: print linked list" << endl;
         // cout << "op 3: insert at any position" << endl;
-        // cout << "op 4: insert at head" << endl;
-        // cout << "op 5: terminate" << endl;
+        // cout << "op 5: delete at position" << endl;
+        // cout << "op 6: terminate" << endl;
         int op;
         cin >> op;
 
@@ -107,6 +120,12 @@ int main()
         }
         else if (op == 5)
         {
+            int pos;
+            cin >> pos;
+            delete_from_position(head, pos);
+        }
+        else if (op == 6)
+        {
             break;
         }
     }
@@ -126,4 +145,4 @@ int main()
 // 4  --- option 4
 // 50 --- value
 // 2 --- for printing the list
-// 5 ---- terminate
+// 6 ---- terminate
