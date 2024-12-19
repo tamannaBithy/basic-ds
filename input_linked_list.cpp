@@ -13,24 +13,20 @@ public:
     }
 };
 
-void insert_at_tail(Node *&head, int v)
+void insert_at_tail(Node *&head, Node *&tail, int v)
 {
 
     Node *newnode = new Node(v);
     if (head == NULL)
     {
         head = newnode;
+        tail = newnode;
         return;
     }
 
-    Node *temp = head;
-    while (temp->next != NULL)
-    {
-        temp = temp->next;
-    }
-
     // temp akhon last node e
-    temp->next = newnode;
+    tail->next = newnode;
+    tail = newnode;
 }
 
 void print_linked_list(Node *head)
@@ -50,14 +46,16 @@ int main()
 {
     int val;
     Node *head = NULL;
+    Node *tail = NULL;
     while (true)
     {
         cin >> val;
         if (val == -1)
             break;
-        insert_at_tail(head, val);
+        insert_at_tail(head, tail, val);
     }
     print_linked_list(head);
+    cout << "Tail = " << tail->val << endl;
 
     return 0;
 }
