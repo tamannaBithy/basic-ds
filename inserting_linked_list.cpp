@@ -95,6 +95,7 @@ void delete_from_position(Node *head, int pos)
     Node *deleteNode = tmp->next;
     tmp->next = tmp->next->next;
     delete deleteNode;
+    // tail = tmp;  /// tail jodi define kora thakto tahle tail update kore deya lagto
 }
 
 void delete_head(Node *&head)

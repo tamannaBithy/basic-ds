@@ -1,3 +1,2 @@
 
-your linked list : 10 40 50 
-Tail = 50
+your linked list : 10 20 40 50 90 
