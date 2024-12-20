@@ -32,6 +32,19 @@ void insert_at_tail(Node *&head, Node *&tail, int v)
     tail = newnode;
 }
 
+void print_linked_list(Node *head)
+{
+    cout << endl;
+    cout << "your linked list : ";
+    Node *tmp = head;
+    while (tmp != NULL)
+    {
+        cout << tmp->val << " ";
+        tmp = tmp->next;
+    }
+    cout << endl;
+}
+
 int main()
 {
     int val;
