@@ -71,19 +71,31 @@ void delete_position(Node *head, int pos)
     delete deleteNode;
 }
 
-void delete_tail(Node *&tail)
+void delete_tail(Node *&tail, Node *&head)
 {
     Node *deleteNode = tail;
     tail = tail->prev;
     delete deleteNode;
+    /// corner case jodi akta e node thake jekhane head r tail same
+    if (tail == NULL)
+    {
+        head = NULL;
+        return;
+    }
     tail->next = NULL;
 }
 
-void delete_head(Node *&head)
+void delete_head(Node *&head, Node *&tail)
 {
     Node *deleteNode = head;
     head = head->next;
     delete deleteNode;
+    /// corner case jodi akta e node thake jekhane head r tail same
+    if (head == NULL)
+    {
+        tail = NULL;
+        return;
+    }
     head->prev = NULL;
 }
 
@@ -116,6 +128,7 @@ int main()
     Node *a = new Node(20);
     Node *b = new Node(30);
     Node *tail = new Node(40);
+    // Node *tail = head; /// for checking corner case
 
     head->next = a;
     a->prev = head;
@@ -131,11 +144,11 @@ int main()
     // print_linked_list(head);
     if (pos == 0)
     {
-        delete_head(head);
+        delete_head(head, tail);
     }
     else if (pos == size(head) - 1)
     {
-        delete_tail(tail);
+        delete_tail(tail, head);
     }
     else if (pos >= size(head))
     {
