@@ -3,5 +3,6 @@
     "iostream": "cpp",
     "ostream": "cpp",
     "new": "cpp"
-  }
+  },
+  "cSpell.words": ["crnt"]
 }
