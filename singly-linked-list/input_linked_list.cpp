@@ -1,3 +1,5 @@
+////// it is called slow & fast algo , some people call it hare & tortoise algo also. this algorithm is used to detect the cycle in a list
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -13,49 +15,37 @@ public:
     }
 };
 
-void insert_at_tail(Node *&head, Node *&tail, int v)
-{
-
-    Node *newnode = new Node(v);
-    if (head == NULL)
-    {
-        head = newnode;
-        tail = newnode;
-        return;
-    }
-
-    // temp akhon last node e
-    tail->next = newnode;
-    tail = newnode;
-}
-
-void print_linked_list(Node *head)
-{
-    cout << endl;
-    cout << "your linked list : ";
-    Node *tmp = head;
-    while (tmp != NULL)
-    {
-        cout << tmp->val << " ";
-        tmp = tmp->next;
-    }
-    cout << endl;
-}
-
 int main()
 {
-    int val;
-    Node *head = NULL;
-    Node *tail = NULL;
-    while (true)
+    Node *head = new Node(10);
+    Node *a = new Node(20);
+    Node *b = new Node(30);
+    Node *c = new Node(40);
+    Node *d = new Node(50);
+
+    head->next = a;
+    a->next = b;
+    b->next = c;
+    c->next = a;
+
+    Node *slow = head;
+    Node *fast = head;
+    int flag = 0;
+    while (fast != NULL && fast->next != NULL)
     {
-        cin >> val;
-        if (val == -1)
+        slow = slow->next;
+        fast = fast->next->next;
+        if (fast == slow)
+        {
+            flag = 1;
             break;
-        insert_at_tail(head, tail, val);
+        }
     }
-    print_linked_list(head);
-    cout << "Tail = " << tail->val << endl;
+
+    if (flag)
+        cout << "cycle detected" << endl;
+    else
+        cout << "cycle not detected" << endl;
 
     return 0;
 }
