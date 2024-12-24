@@ -29,6 +29,18 @@ void insert_tail(Node *&head, Node *&tail, int val)
     tail = newNode;
 }
 
+void print_reverse(Node *head, Node *tail)
+{
+    Node *i = head;
+    Node *j = tail;
+    while (i != j && i->next != j)
+    {
+        swap(i->val, j->val);
+        i = i->next;
+        j = j->prev;
+    }
+}
+
 void print_linked_list(Node *head)
 {
     Node *tmp = head;
@@ -54,6 +66,7 @@ int main()
         insert_tail(head, tail, val);
     }
 
+    print_reverse(head, tail);
     print_linked_list(head);
 
     return 0;
