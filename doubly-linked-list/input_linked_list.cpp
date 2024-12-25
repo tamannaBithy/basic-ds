@@ -39,6 +39,9 @@ void print_reverse(Node *head, Node *tail)
         i = i->next;
         j = j->prev;
     }
+
+    //// jokhon i->next == j hoy tokhon while looper vitore r duke na tai swap o hoy nai se jonno aivabe manually swap kore deya hoy, akhn jodi i, j same o hoy(jor sonkhhok size hole) tahle tara e swap hoye same thake
+    swap(i->val, j->val);
 }
 
 void print_linked_list(Node *head)
