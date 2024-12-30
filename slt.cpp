@@ -1,26 +1,94 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//// test case 1
+// int main()
+// {
+//     list<int> l;
+//     while (true)
+//     {
+
+//         int x;
+//         cin >> x;
+//         if (x == -1)
+//             break;
+//         l.push_back(x);
+//     }
+
+//     l.sort();
+//     l.unique();
+
+//     for (int val : l)
+//     {
+//         cout << val << " ";
+//     }
+
+//     return 0;
+// }
+
+///// test case 2 & 3
+// int main()
+// {
+//     list<string> l;
+//     string x;
+//     while (cin >> x && x != "end")
+//     {
+//         l.push_back(x);
+//     }
+
+//     int q;
+//     cin >> q;
+//     cin.ignore();
+//     auto current = l.begin();
+//     for (int i = 0; i < q; i++)
+//     {
+//         string v;
+//         getline(cin, v);
+
+//         if (v.substr(0, 5) == "visit")
+//         {
+//             string target = v.substr(6);
+//             auto it = find(l.begin(), l.end(), target);
+//             if (it != l.end())
+//             {
+//                 current = it;
+//                 cout << target << endl;
+//             }
+//             else
+//             {
+//                 cout << "Not Available" << endl;
+//             }
+//         }
+//         else if (v == "next")
+//         {
+//             auto nextword = next(current, 1);
+//             if (nextword != l.end())
+//             {
+//                 current = nextword;
+//                 cout << *current << endl;
+//             }
+//             else
+//             {
+//                 cout << "Not Available" << endl;
+//             }
+//         }
+//         else if (v == "prev")
+//         {
+//             if (current != l.begin())
+//             {
+//                 --current;
+//                 cout << *current << endl;
+//             }
+//             else
+//             {
+//                 cout << "Not Available" << endl;
+//             }
+//         }
+//     }
+//     return 0;
+// }
+
+///// test case 4
 int main()
 {
-    list<int> l;
-    while (true)
-    {
-
-        int x;
-        cin >> x;
-        if (x == -1)
-            break;
-        l.push_back(x);
-    }
-
-    l.sort();
-    l.unique();
-
-    for (int val : l)
-    {
-        cout << val << " ";
-    }
-
-    return 0;
 }
