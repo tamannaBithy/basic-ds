@@ -88,7 +88,50 @@ using namespace std;
 //     return 0;
 // }
 
-///// test case 4
+///// test case 4 & 5
+
 int main()
 {
+    list<int> l;
+    int q;
+    cin >> q;
+
+    for (int i = 0; i < q; i++)
+    {
+        int x, v;
+        cin >> x >> v;
+        if (x == 0)
+        {
+            l.push_front(v);
+        }
+        else if (x == 1)
+        {
+            l.push_back(v);
+        }
+        else if (x == 2)
+        {
+            int size = l.size();
+
+            if (v < size)
+            {
+                l.erase(next(l.begin(), v));
+            }
+        }
+
+        cout << "L -> ";
+        for (int val : l)
+        {
+            cout << val << " ";
+        }
+        cout << endl;
+        cout << "R -> ";
+
+        for (auto it = l.rbegin(); it != l.rend(); ++it)
+        {
+            cout << *it << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
 }
