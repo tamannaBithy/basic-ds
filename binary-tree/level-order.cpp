@@ -54,7 +54,7 @@ Node *input_tree()
     return root;
 }
 
-////////// for the sum without leaf nodes : testcase-1
+////////// for the sum without leaf nodes : testcase-3
 // void level_order(Node *root)
 // {
 //     if (root == NULL)
@@ -82,8 +82,41 @@ Node *input_tree()
 //     cout << sum << endl;
 // }
 
-//////////////  leaf nodes in descending order : testcase-2
-void level_order(Node *root)
+//////////////  leaf nodes in descending order : testcase-4
+// void level_order(Node *root)
+// {
+//     if (root == NULL)
+//     {
+//         return;
+//     }
+
+//     vector<int> v;
+//     queue<Node *> q;
+//     q.push(root);
+
+//     while (!q.empty())
+//     {
+//         Node *f = q.front();
+//         q.pop();
+
+//         if (f->left == NULL && f->right == NULL)
+//         {
+//             v.push_back(f->val);
+//         }
+//         if (f->left)
+//             q.push(f->left);
+//         if (f->right)
+//             q.push(f->right);
+//     }
+//     sort(v.rbegin(), v.rend());
+//     for (int val : v)
+//     {
+//         cout << val << " ";
+//     }
+// }
+
+//////////////  print all the node's values in given level : testcase-1, 2
+void level_order(Node *root, int lvl)
 {
     if (root == NULL)
     {
@@ -91,33 +124,58 @@ void level_order(Node *root)
     }
 
     vector<int> v;
-    queue<Node *> q;
-    q.push(root);
+    queue<pair<Node *, int>> q;
+    q.push({root, 0});
 
     while (!q.empty())
     {
-        Node *f = q.front();
+        pair<Node *, int> f = q.front();
         q.pop();
+        Node *data = f.first;
+        int level = f.second;
 
-        if (f->left == NULL && f->right == NULL)
+        if (level == lvl)
         {
-            v.push_back(f->val);
+            v.push_back(data->val);
         }
-        if (f->left)
-            q.push(f->left);
-        if (f->right)
-            q.push(f->right);
+
+        if (data->left)
+            q.push({data->left, level + 1});
+        if (data->right)
+            q.push({data->right, level + 1});
     }
-    sort(v.rbegin(), v.rend());
+
     for (int val : v)
     {
         cout << val << " ";
     }
 }
 
+int max_depth(Node *root)
+{
+    if (root == NULL)
+        return 0;
+    if (root->left == NULL && root->right == NULL)
+        return 1;
+    int l = max_depth(root->left);
+    int r = max_depth(root->right);
+    return max(l, r) + 1;
+}
+
 int main()
 {
     Node *root = input_tree();
-    level_order(root);
+    int depth = max_depth(root);
+    int level;
+    cin >> level;
+    if (level >= depth)
+    {
+        cout << "Invalid" << endl;
+    }
+    else
+    {
+        level_order(root, level);
+    }
+
     return 0;
 }
