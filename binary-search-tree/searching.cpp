@@ -82,3 +82,8 @@ int main()
         cout << "not found";
     return 0;
 }
+
+///// time complexity o(h)
+//// if it is a perfect binary tree complexity will be equivalent of o(logN)
+//// if it is a worst bt complexity will be equivalent of o(N)
+//// that's why the height of the bt is the complexity of searching in bt
