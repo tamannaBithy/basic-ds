@@ -32,6 +32,10 @@ int main()
     return 0;
 }
 
+/////// 1 ta val insert complexity o(logN)
+//////  n val insert complexity o(NlogN)
+///// muloto array er khetre max or min value pete hole protibar insert korar por sort korte hoy & tkhn complexity hoye jay o(n^2logN) jeta heaper complexity theke kharap. tai bar bar insert er por max/min value janar dorkar hole heap use kora hoy
+
 ///////// insert in min heap
 // int main()
 // {
