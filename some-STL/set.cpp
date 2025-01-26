@@ -25,3 +25,5 @@ int main()
         cout << "nai" << endl;
     return 0;
 }
+
+///// set behind the scene balanced-bst maintain kore tai aitar complexity kokhno worst bst er moto o(n) hoy na, always o(logN) hoy 1ta val er jonno
